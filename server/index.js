@@ -3,13 +3,13 @@ const http = require('http');
 const server = http.createServer();
 const wss = new WebSocket.Server({ server, clientTracking: true });
 
-app.use(express.json());
+// app.use(express.json());
 
-app.get("/ping", (req, res) =>
-{
-  res.send("pong");
+// app.get("/ping", (req, res) =>
+// {
+//   res.send("pong");
 
-});
+// });
 
 
 wss.on('connection', (ws, req) =>
