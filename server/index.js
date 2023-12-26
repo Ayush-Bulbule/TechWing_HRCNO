@@ -1,7 +1,8 @@
 const WebSocket = require('ws');
-const http = require('http');
-const server = http.createServer();
-const wss = new WebSocket.Server({ server, clientTracking: true });
+// const http = require('http');
+// const server = http.createServer();
+const PORT = process.env.PORT || 4000;
+const wss = new WebSocket.Server({port:PORT });
 
 // app.use(express.json());
 
@@ -28,8 +29,8 @@ wss.on('connection', (ws, req) =>
   });
 });
 
-const PORT = process.env.PORT || 3001;
-server.listen(PORT, () =>
-{
-  console.log(`Server is listening on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 3001;
+// server.listen(PORT, () =>
+// {
+//   console.log(`Server is listening on port ${PORT}`);
+// });
