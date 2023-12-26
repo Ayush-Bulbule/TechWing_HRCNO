@@ -1,8 +1,18 @@
 const WebSocket = require('ws');
 const http = require('http');
-
-const server = http.createServer();
+const express = require("express");
+const app = express();
+const server = http.createServer(app);
 const wss = new WebSocket.Server({ server, clientTracking: true });
+
+app.use(express.json());
+
+app.get("/ping", (req, res) =>
+{
+  res.send("pong");
+
+});
+
 
 wss.on('connection', (ws, req) =>
 {
